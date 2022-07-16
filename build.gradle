@@ -6,17 +6,18 @@ repositories {
     mavenLocal()
     mavenCentral()
     jcenter()
-    maven { url 'https://www.jetbrains.com/intellij-repository/snapshots' }
+    maven { url 'https://www.jetbrains.com/intellij-repository/releases' }
+//    maven { url 'https://www.jetbrains.com/intellij-repository/snapshots' }
 }
 
 intellij {
     type = 'IC'
     plugins = ['java']
-    version = '221-EAP-SNAPSHOT'
+    version = '212.5712.43'
 }
 
 patchPluginXml {
-    untilBuild = "221.*"
+    untilBuild = "212.*"
 }
 
 apply plugin: 'java'
@@ -33,8 +34,8 @@ sourceSets {
 
 repositories {
     mavenCentral()
-    maven { url "https://www.jetbrains.com/intellij-repository/snapshots" }
-//    maven { url "https://jetbrains.bintray.com/intellij-third-party-dependencies" }
+    maven { url "https://www.jetbrains.com/intellij-repository/releases" }
+    maven { url "https://cache-redirector.jetbrains.com/intellij-dependencies" }
 }
 
 compileJava.options.encoding = 'UTF-8'
