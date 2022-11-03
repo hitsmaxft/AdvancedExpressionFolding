@@ -17,7 +17,7 @@ intellij {
 }
 
 patchPluginXml {
-    untilBuild = "221.*"
+    untilBuild = "222.*"
 }
 
 apply plugin: 'java'
@@ -35,6 +35,7 @@ sourceSets {
 repositories {
     mavenCentral()
     maven { url "https://www.jetbrains.com/intellij-repository/releases" }
+//    maven { url 'https://www.jetbrains.com/intellij-repository/snapshots' }
     maven { url "https://cache-redirector.jetbrains.com/intellij-dependencies" }
 }
 

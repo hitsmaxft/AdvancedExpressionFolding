@@ -2,10 +2,10 @@ import java.util.Arrays;
 
 public class ControlFlowSingleStatementTestData {
     public static void main(String[] args) <fold text='{...}' expand='true'>{
-        if (args.length > 0) <fold text='' expand='false'>{</fold>
+        if (args.length > 0) <fold text='' expand='false'><fold text='{...}' expand='true'>{</fold>
             System.out.println(Arrays.asList(args));
 <fold text='' expand='false'>        }
-</fold>        if (args.length == 0) <fold text='' expand='false'>{</fold>
+</fold>        if (args.length == 0) <fold text='' expand='false'><fold text='' expand='false'><fold text='{...}' expand='true'>{</fold>
             System.out.println("...");
         <fold text='' expand='false'>} </fold>else <fold text='' expand='false'>{</fold>
             System.out.println("...");

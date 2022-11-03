@@ -59,14 +59,17 @@ public abstract class AbstractControlFlowCodeBlock extends Expression {
                     thisStatement = null;
                 }
                 if (thisStatement != null) {
-                    int thisStatementIndent = indentHelper.getIndent(element.getProject(), JavaFileType.INSTANCE, thisStatement.getNode());
+                    int thisStatementIndent = indentHelper.getIndent(element.getContainingFile(), thisStatement.getNode());
+                    // right brace processing
                     PsiElement before = PsiTreeUtil.prevLeaf(this.element.getRBrace(), true);
                     PsiElement after = PsiTreeUtil.prevLeaf(this.element.getRBrace(), true);
+                    // r-brace surrounding with whitespaces
                     if (before instanceof PsiWhiteSpace && after instanceof PsiWhiteSpace) {
                         smart = true;
                         int startOffset = this.element.getRBrace().getTextRange().getStartOffset();
                         boolean newLine = false;
                         int endOffset = this.element.getRBrace().getTextRange().getEndOffset();
+                        //found last whitespace
                         while (endOffset < document.getTextLength()) {
                             endOffset++;
                             char c = document.getText(TextRange.create(endOffset - 1, endOffset)).charAt(0);
